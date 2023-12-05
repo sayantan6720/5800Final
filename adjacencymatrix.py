@@ -51,5 +51,3 @@ class AdjacencyMatrix:
 
 test = AdjacencyMatrix("Flight Data - Sheet1.csv")
 
-print(test.get_matrix())
-print(test.get_vertices())
