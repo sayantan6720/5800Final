@@ -5,6 +5,7 @@ api_key = 'sh428739766321522266746152871799'
 
 data = {
     "query": {
+
         "market": "US",
         "locale": "en-US",
         "currency": "USD",
@@ -15,7 +16,7 @@ data = {
                 "date": {"year": 2023, "month": 12, "day": 12}
             }
         ],
-    },
+
     "cabinClass": "CABIN_CLASS_ECONOMY",
     "adults": 1,
     "childrenAges": [],
@@ -25,6 +26,8 @@ data = {
     "excludedAgentsIds": [],
     "includeSubsidiaryData": True,
     "nearbyAirports": True
+
+    }
 }
 
 headers = {
@@ -41,3 +44,4 @@ if response.ok:
     print(response.json())
 else:
     print(f"Failed to retrieve data: {response.status_code}, {response.text}")
+
