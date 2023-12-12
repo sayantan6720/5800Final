@@ -25,10 +25,10 @@ def index():
     # ... (your flight search logic here)
 
     # Return the template with a message if desired
-    return render_template('bard_test.html', message="Flight data received!")
+    return render_template('UI.html', message="Flight data received!")
   else:
     # Render the form if it wasn't submitted
-    return render_template('bard_test.html')
+    return render_template('UI.html')
 
 if __name__ == "__main__":
   app.run(debug=True)
