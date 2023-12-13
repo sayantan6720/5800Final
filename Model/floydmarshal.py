@@ -1,4 +1,4 @@
-from adjacencymatrix import AdjacencyMatrix
+from Model.adjacencymatrix import AdjacencyMatrix
 def floyd_warshall_with_path(weights):
     n = len(weights)
     # Initialize distance and predecessor matrices
