@@ -20,7 +20,8 @@ class AdjacencyMatrix:
                 self.airports.append(airport)
 
         # create the adjacency matrix using numpy
-        self.adjacency_matrix = np.zeros((len(self.airports), len(self.airports)))
+        self.adjacency_matrix_USD = np.full((len(self.airports), len(self.airports)), np.inf)
+        self.adjacency_matrix_GHG = np.full((len(self.airports), len(self.airports)), np.inf)
 
         # helper function that gets the index of an airport from the airports list
         def get_index(airport_code):
@@ -37,17 +38,32 @@ class AdjacencyMatrix:
             destination = get_index(row['Airport Destination'])
 
             # get the cost of that directed edge
-            cost = row['Cost']
+            costUSD = row['USD']
+            costGHG = row['GHG']
 
             # fill the cell of the adjacency matrix that corresponds to that u,v edge cost
-            self.adjacency_matrix[origin][destination] = cost
+            if costUSD != "NA" or costGHG != "NA":
+                self.adjacency_matrix_USD[origin][destination] = float(costUSD)
+                self.adjacency_matrix_GHG[origin][destination] = float(costGHG)
+            if costUSD == "NA" or costGHG == "NA":
+                self.adjacency_matrix_USD[origin][destination] = np.inf
+                self.adjacency_matrix_GHG[origin][destination] = np.inf
 
-    def get_matrix(self):
-        return self.adjacency_matrix
+
+
+
+    def get_USD_matrix(self):
+        return self.adjacency_matrix_USD
+
+    def get_GHG_matrix(self):
+        return self.adjacency_matrix_GHG
 
     def get_vertices(self):
         return self.airports
 
 
-test = AdjacencyMatrix("Flight Data - Sheet1.csv")
+if __name__ == "__main__":
+    test = AdjacencyMatrix("Flight Data - Sheet1.csv")
+
+
 
