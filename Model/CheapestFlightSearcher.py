@@ -55,4 +55,4 @@ class CheapestFlightSearcher:
                      path_dict[destination_index]))
 
         # Return cost and path as a tuple
-        return cost_to_reach_destination, path_to_reach_destination
+        return cost_to_reach_destination, source_airport_code, path_to_reach_destination
